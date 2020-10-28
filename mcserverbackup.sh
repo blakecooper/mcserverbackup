@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ $(python3 getActivePlayers.py) == "0" ]
+./secrets.sh
+
+if [ $(python3 getActivePlayers.py $serverAddress) == "0" ] && [ $(stat -c %Y ${pathToServer}/logs/latest.log) -gt $(stat -c %Y $pathToBackup1) ]
 then
-	if [ $(stat -c %Y MinecraftServer/logs/latest.log) -gt $(stat -c %Y MinecraftServer_backsups/minecraftserver_backup.zip) ]
-		zip -r MinecraftServer_backups/minecraftserver_backup.zip MinecraftServer
-		cp MinecraftServer_backups/minecraftserver_backup.zip /media/blake-and-dave/MCS_backup
-	fi
+	zip -r $pathToBackup1 $pathToServer
+	cp $pathToBackup1 $pathToBackup2 
 fi
