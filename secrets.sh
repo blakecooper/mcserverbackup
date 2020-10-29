@@ -1,6 +1,8 @@
 #!/bin/bash
 
 serverAddress=''
+globalPath=''
 pathToServer=''
 pathToBackup1=''
-pathToBackup2=''#!/bin/bash
+pathToBackup2=''
+numberOfBackups=''
