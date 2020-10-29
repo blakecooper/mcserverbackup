@@ -2,7 +2,7 @@
 
 source secrets.sh
 
-if [[ $(python3 getActivePlayers.py $serverAddress) == "0" ]]
+if [[ $(python3 $globalPath/getActivePlayers.py $serverAddress) == "0" ]]
 then
 	if [[ -f $pathToBackup1/minecraftserver_backup_1.zip ]]
 	then
